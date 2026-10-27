@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="theme-color" content="#0a0b0d" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="description"
+      content="Trigger a real phone call to yourself when you need attention."
+    />
+    <title>Attention Seeker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0b0d'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ff3b1f' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23ff3b1f'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <main class="shell" id="home">
+      <header class="brand">
+        <p class="brand__mark">Attention Seeker</p>
+        <h1 class="brand__line">Need eyes on you?</h1>
+        <p class="brand__sub">
+          Places a <strong>real phone call</strong> to your number. Your phone’s
+          actual ringtone and call screen take over.
+        </p>
+      </header>
+
+      <section class="stage" aria-label="Trigger">
+        <button type="button" class="panic" id="ringBtn">
+          <span class="panic__rings" aria-hidden="true"></span>
+          <span class="panic__label">RING</span>
+          <span class="panic__hint">real call incoming</span>
+        </button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="controls" aria-label="Setup">
+        <label class="field">
+          <span>Your phone number</span>
+          <input
+            id="phoneNumber"
+            type="tel"
+            inputmode="tel"
+            placeholder="+91 98765 43210"
+            autocomplete="tel"
+          />
+          <p class="legal">Use full international format (include country code).</p>
+        </label>
+
+        <label class="field">
+          <span>Delay before calling</span>
+          <select id="delaySelect">
+            <option value="0">Now</option>
+            <option value="5">5 seconds</option>
+            <option value="10" selected>10 seconds</option>
+            <option value="30">30 seconds</option>
+            <option value="60">1 minute</option>
+          </select>
+          <p class="legal">Gives you time to lock the phone and look ignored.</p>
+        </label>
+
+        <div class="tips">
+          <p class="tips__title">For Toxic-level chaos</p>
+          <ol>
+            <li>Set your <strong>phone ringtone</strong> to Toxic in system Settings</li>
+            <li>Crank ringtone volume to max</li>
+            <li>Tap RING — a real call hits your phone</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <div class="waiting" id="waitingScreen" hidden>
+      <p class="waiting__label" id="waitingLabel">Calling your phone…</p>
+      <p class="waiting__count" id="countdown">10</p>
+      <p class="waiting__sub" id="waitingSub">Put the phone down. Look busy.</p>
+      <button type="button" class="ghost" id="cancelBtn">Cancel</button>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

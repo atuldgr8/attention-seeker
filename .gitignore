@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+.env
+__pycache__/
+*.pyc
+audio/*.mp3
+audio/*.m4a
+audio/*.wav
